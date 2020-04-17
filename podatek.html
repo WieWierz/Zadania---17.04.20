@@ -1,0 +1,56 @@
+<html>
+<head>
+</head>
+<body>
+Podaj cene:
+<input type="number" id="cena" onkeyup="licz()"> <br>
+Podaj ilosc:
+<input type="number" id="ilosc" onkeyup="licz()"><br>
+VAT:
+<input type="checkbox" checked id="vat" onClick="licz1()"><br>
+Podatek:
+<input type="checkbox" checked id="podatek" onClick="licz2()"><br>
+
+<div id="wynik1"> </div>
+<div id="wynik2"> </div>
+<div id="wynik3"> </div>
+
+<script>
+
+		var cena1 = parseFloat(document.getElementById("cena").value);
+		var ilosc1 = parseFloat(document.getElementById("ilosc").value);
+		
+		var wynik = cena1*ilosc1
+
+	function licz(){
+		
+		document.getElementById("wynik1").innerHTML="Wynik:"+wynik;
+	}
+	
+	function licz1()
+	{
+		if(document.getElementById("vat").checked)
+			{
+				document.getElementById("wynik2").innerHTML="Wynik z VAT:"+wynik*0.18;
+			}else
+			{
+				document.getElementById("wynik2").innerHTML="Zaznacz VAT";
+			}
+	}
+	
+	function licz2()
+	{
+		if(document.getElementById("podatek").checked)
+			{
+				document.getElementById("wynik3").innerHTML="Wynik z VAT:"+wynik*0.18*1.23;
+			}else
+			{
+				document.getElementById("wynik3").innerHTML="Zaznacz podatek";
+			}
+	}
+
+</script>
+
+
+</body>
+</html>
